@@ -1,22 +1,21 @@
-class HomController < ApplicationController
-  
+class KeisanController < ApplicationController
+
     def  addition
-      @add = params[:id]+params[:id2]
+      #変数で受け取ると、文字列に変更される
+      @add = params[:number1].to_i + params[:number2].to_i
     end
 
     def subtraction
-      @sub = params[:id]-params[:id2]
+      @sub = params[:number1].to_i -　params[:number2].to_i
     end
 
     def multiplication
-      @mul = params[:id]*params[:id2]
+      @mul = params[:number1].to_i *　params[:number2].to_i
     end
 
     def division
-      @div = params[:id]/params[:id2]
+      @div = params[:number1].to_i /　params[:number2].to_i
     end
-
-  end
 
 
 end
