@@ -1,21 +1,25 @@
 class KeisanController < ApplicationController
 
-    def  addition
-      #変数で受け取ると、文字列に変更される
-      @add = params[:number1].to_i + params[:number2].to_i
-    end
+    def transaction
 
-    def subtraction
-      @sub = params[:number1].to_i -　params[:number2].to_i
-    end
+      @moji1 = params[:number1].to_i
+      @moji2 = params[:number2].to_i
 
-    def multiplication
-      @mul = params[:number1].to_i *　params[:number2].to_i
-    end
+      if params[:transaction] == "addition"
+        @msg = @moji1 + @moji2
 
-    def division
-      @div = params[:number1].to_i /　params[:number2].to_i
-    end
+      elsif params[:transaction] == "subtraction"
+        @msg = @moji1 - @moji2
 
+      elsif params[:transaction] == "multiplication"
+        @msg = @moji1 * @moji2
+
+      elsif params[:transaction] == "division"
+        @msg = @moji1 / @moji2
+      else
+        @another = "計算できません"
+      end
+
+    end
 
 end

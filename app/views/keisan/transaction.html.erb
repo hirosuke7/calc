@@ -1,0 +1,25 @@
+<h1>計算結果</h1>
+
+
+
+<% if params[:transaction] == "addition" %>
+
+<div class = "blue">
+    <%= "#{@moji1} + #{@moji2} = #{@msg}"%>
+
+  <% elsif params[:transaction] == "subtraction" %>
+    <%= "#{@moji1} - #{@moji2} = #{@msg}"%>
+
+  <% elsif params[:transaction] == "multiplication" %>
+    <%= "#{@moji1} × #{@moji2} = #{@msg}"%>
+
+  <% elsif params[:transaction] == "division" %>
+    <%= "#{@moji1} ÷ #{@moji2} = #{@msg}"%>
+</div>
+
+
+  <% else %>
+  <div class = "red">
+    <%= @another %>
+  </div
+<% end %>
