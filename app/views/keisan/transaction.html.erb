@@ -2,24 +2,16 @@
 
 
 
-<% if params[:transaction] == "addition" %>
+<% if @transaction == "addition" || @transaction == "subtraction" || @transaction == "multiplication" || @transaction == "division" %>
 
-<div class = "blue">
-    <%= "#{@moji1} + #{@moji2} = #{@msg}"%>
+    <div class = "blue">
+        <%= "#{@moji1} #{@operater} #{@moji2} = #{@result}" %>
+    </div>
 
-  <% elsif params[:transaction] == "subtraction" %>
-    <%= "#{@moji1} - #{@moji2} = #{@msg}"%>
+<% else %>
 
-  <% elsif params[:transaction] == "multiplication" %>
-    <%= "#{@moji1} × #{@moji2} = #{@msg}"%>
+    <div class = "red">
+        <%= @another %>
+    </div>
 
-  <% elsif params[:transaction] == "division" %>
-    <%= "#{@moji1} ÷ #{@moji2} = #{@msg}"%>
-</div>
-
-
-  <% else %>
-  <div class = "red">
-    <%= @another %>
-  </div
 <% end %>

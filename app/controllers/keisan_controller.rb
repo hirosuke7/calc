@@ -4,18 +4,25 @@ class KeisanController < ApplicationController
 
       @moji1 = params[:number1].to_i
       @moji2 = params[:number2].to_i
+      @transaction = params[:transaction]
+      operaters = ["+","-","×","÷"]
 
-      if params[:transaction] == "addition"
-        @msg = @moji1 + @moji2
+      if @transaction == "addition"
+        @result= @moji1 + @moji2
+        @operater = operaters[0]
 
-      elsif params[:transaction] == "subtraction"
-        @msg = @moji1 - @moji2
+      elsif @transaction == "subtraction"
+        @result = @moji1 - @moji2
+        @operater = operaters[1]
 
-      elsif params[:transaction] == "multiplication"
-        @msg = @moji1 * @moji2
+      elsif @transaction == "multiplication"
+        @result = @moji1 * @moji2
+        @operater = operaters[2]
 
-      elsif params[:transaction] == "division"
-        @msg = @moji1 / @moji2
+      elsif @transaction == "division"
+        @result = @moji1 / @moji2
+        @operater = operaters[3]
+
       else
         @another = "計算できません"
       end
